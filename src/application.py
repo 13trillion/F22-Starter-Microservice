@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 from columbia_student_resource import ColumbiaStudentResource
 from flask_cors import CORS
+import time
 
 # Create the Flask application object.
 app = Flask(__name__,
@@ -13,6 +14,9 @@ app = Flask(__name__,
 CORS(app)
 
 
+@app.get("/")
+def index():
+    return f"Hello World"
 @app.get("/api/health")
 def get_health():
     t = str(datetime.now())
